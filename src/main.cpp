@@ -71,7 +71,7 @@ int main(int argc, const char **argv)
     RouteModel model{osm_data};
 
     // Entry data range control
-    if( (start_x >= 0) && (start_x <= 100) && (start_y >= 0) && (start_y <= 100) && 	         (end_x >= 0) && (end_x <= 100) && (end_y >= 0) && (end_y <= 100) ){
+    if( (start_x >= 0) && (start_x <= 100) && (start_y >= 0) && (start_y <= 100) && (end_x >= 0) && (end_x <= 100) && (end_y >= 0) && (end_y <= 100) ){
     // Create RoutePlanner object and perform A* search.
         RoutePlanner route_planner{model, start_x, start_y, end_x, end_y };
         route_planner.AStarSearch();
