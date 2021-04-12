@@ -70,12 +70,16 @@ int main(int argc, const char **argv)
     // Build Model.
     RouteModel model{osm_data};
 
+    // Entry data range control
+    if( (start_x >= 0) && (start_x <= 100) && (start_y >= 0) && (start_y <= 100) && 	         (end_x >= 0) && (end_x <= 100) && (end_y >= 0) && (end_y <= 100) ){
     // Create RoutePlanner object and perform A* search.
-    RoutePlanner route_planner{model, start_x, start_y, end_x, end_y};
-    route_planner.AStarSearch();
-
-    std::cout << "Distance: " << route_planner.GetDistance() << " meters. \n";
-
+        RoutePlanner route_planner{model, start_x, start_y, end_x, end_y };
+        route_planner.AStarSearch();
+        std::cout << "Distance: " << route_planner.GetDistance() << " meters. \n";
+   
+    }else{
+        std::cout << "One of the entry is out of range!(0-100)" << std::endl;
+    }
     // Render results of search.
     Render render{model};
 
